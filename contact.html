@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact - Lungani Zungu</title>
-    <meta name="description" content="Contact Lungani Zungu to discuss his skills to the role.">
+    <meta name="description" content="Contact Lungani Zungu to discuss his skills for your role or project.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <button id="theme-toggle">🌙</button>
+    <button id="back-to-top" title="Back to top">↑</button>
+    
     <header>
         <nav>
             <a href="index.html">Home</a>
@@ -20,20 +22,70 @@
             <a href="assets/your-cv.pdf" download class="cv-btn">Download CV</a>
         </nav>
     </header>
+    
     <main>
-        <h2>Contact Me</h2>
-        <!-- Google Form Embedded Here -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScKWxl9Dd5nB4eKdAZsC1KZdF3HYhleTwS7dz00-oJOFdwpKQ/viewform?usp=dialog"
-            width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        <div class="social-icons">
-            <a href="mailto:langanizungu2018@gmail.com" title="Email"><i class="fas fa-envelope">Email</a>
-            <a href="https://github.com/2190lunga" target="_blank" title="GitHub"><i class="fab fa-github">GitHub</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin">LinkedIn</a>
-        </div>
-        <a href="assets/your-cv.pdf" download>
-            <button>Download My CV</button>
-        </a>
+        <section class="contact-hero">
+            <h2>Let's Connect!</h2>
+            <p>I'm always interested in new opportunities, collaborations, or just a good conversation about technology and data.</p>
+        </section>
+        
+        <section class="contact-content">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:langanizungu2018@gmail.com">langanizungu2018@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Based in South Africa</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Response Time</h4>
+                        <p>Usually within 24 hours</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <h4>Follow Me</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/2190lunga" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+
+
+                        <a href="www.linkedin.com/in/lungani-zung" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+
+                        <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <h3>Send Me a Message</h3>
+                <!-- Google Form Embedded Here -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScKWxl9Dd5nB4eKdAZsC1KZdF3HYhleTwS7dz00-oJOFdwpKQ/viewform?usp=dialog"
+                    width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </section>
+        
+        <section class="download-section">
+            <h3>Want to know more about my experience?</h3>
+            <a href="assets/your-cv.pdf" download class="download-btn">
+                <button><i class="fas fa-download"></i> Download My CV</button>
+            </a>
+        </section>
     </main>
+    
     <footer>
         <p>&copy; 2025 Lungani Zungu</p>
     </footer>

@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Lungani Zungu - Portfolio</title>
-    <meta name="description" content="Portfolio website of Lunga, developer, designer, and creator.">
+    <meta name="description" content="Portfolio website of Lungani Zungu, Data Scientist & Web Developer.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Lunga - Portfolio">
-    <meta property="og:description" content="Explore my work, skills, and contact me!">
+    <meta property="og:title" content="Lungani Zungu - Portfolio">
+    <meta property="og:description" content="Data Scientist & Web Developer | Explore my work and skills!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <button id="theme-toggle">🌙</button>
+    <button id="back-to-top" title="Back to top">↑</button>
+    
     <header>
         <div class="header-content">
-            <img src="images/profile.jpg" alt="Lunga's profile" class="profile-img">
+            <img src="https://avatars.githubusercontent.com/u/55635130?v=4" alt="Lungani's profile" class="profile-img">
             <h1>Lungani Zungu</h1>
-            <p class="tagline">Web Developer | Designer | Creator</p>
+            <p class="tagline">Data Scientist | Web Developer | AI Enthusiast</p>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -32,60 +34,103 @@
             </div>
         </div>
     </header>
+    
     <main>
-        <section>
-            <h2>Welcome!</h2>
-            <p>Explore my work, check out my skills, and feel free to get in touch!</p>
+        <section class="hero">
+            <h2>Welcome to My Digital Space!</h2>
+            <p>I transform data into insights and ideas into interactive experiences. Explore my work and let's create something amazing together!</p>
         </section>
+        
         <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skill-bar">
-                <span>HTML</span>
-                <div class="bar"><div class="progress" style="width:90%"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>CSS</span>
-                <div class="bar"><div class="progress" style="width:85%"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>JavaScript</span>
-                <div class="bar"><div class="progress" style="width:80%"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>React</span>
-                <div class="bar"><div class="progress" style="width:75%"></div></div>
+            <h2>My Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Science & Analytics</h3>
+                    <div class="skill-bar">
+                        <span>Python & Pandas <em>90%</em></span>
+                        <div class="bar"><div class="progress" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>Machine Learning <em>85%</em></span>
+                        <div class="bar"><div class="progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>Data Visualization <em>80%</em></span>
+                        <div class="bar"><div class="progress" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>SQL & Databases <em>85%</em></span>
+                        <div class="bar"><div class="progress" data-width="85"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-bar">
+                        <span>HTML/CSS <em>90%</em></span>
+                        <div class="bar"><div class="progress" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>JavaScript <em>85%</em></span>
+                        <div class="bar"><div class="progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>React <em>75%</em></span>
+                        <div class="bar"><div class="progress" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <span>Node.js <em>70%</em></span>
+                        <div class="bar"><div class="progress" data-width="70"></div></div>
+                    </div>
+                </div>
             </div>
         </section>
+        
         <section id="featured-projects">
             <h2>Featured Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="data">Data Science</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+            </div>
             <div class="projects-gallery">
-                <div class="project-card" onclick="openModal(0)">
-                    <img src="images/project1.jpg" alt="Project 1">
-                    <h3>Portfolio Website</h3>
-                    <p>A modern portfolio website to showcase my work and skills.</p>
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </section>
+        
+        <section id="stats">
+            <h2>My Journey in Numbers</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Projects Completed</div>
                 </div>
-                <div class="project-card" onclick="openModal(1)">
-                    <img src="images/project2.jpg" alt="Project 2">
-                    <h3>Weather App</h3>
-                    <p>A simple weather app using public APIs.</p>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="project-card" onclick="openModal(2)">
-                    <img src="images/project3.jpg" alt="Project 3">
-                    <h3>Task Manager</h3>
-                    <p>A productivity app for organizing daily tasks.</p>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Certifications</div>
                 </div>
             </div>
         </section>
-        <!-- Modal for projects -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <div id="modal-body"></div>
-            </div>
-        </div>
     </main>
+    
+    <!-- Modal for projects -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
     <footer>
-        <p>&copy; 2025 Lungani Zungu</p>
+        <p>&copy; 2025 Lungani Zungu | Data Scientist & Web Developer</p>
     </footer>
 </body>
 </html>

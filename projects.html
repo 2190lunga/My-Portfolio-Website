@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Projects - Lunga</title>
-    <meta name="description" content="Explore Lunga's web development and design projects.">
+    <title>Projects - Lungani Zungu</title>
+    <meta name="description" content="Explore Lungani Zungu's data science and web development projects.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <button id="theme-toggle">🌙</button>
+    <button id="back-to-top" title="Back to top">↑</button>
+    
     <header>
         <nav>
             <a href="index.html">Home</a>
@@ -20,33 +22,39 @@
             <a href="assets/your-cv.pdf" download class="cv-btn">Download CV</a>
         </nav>
     </header>
+    
     <main>
-        <h2>Projects</h2>
-        <div class="projects-gallery">
-            <div class="project-card" onclick="openModal(0)">
-                <img src="images/project1.jpg" alt="Project 1">
-                <h3>Portfolio Website</h3>
-                <p>A modern portfolio website to showcase my work and skills.</p>
-            </div>
-            <div class="project-card" onclick="openModal(1)">
-                <img src="images/project2.jpg" alt="Project 2">
-                <h3>Weather App</h3>
-                <p>A simple weather app using public APIs.</p>
-            </div>
-            <div class="project-card" onclick="openModal(2)">
-                <img src="images/project3.jpg" alt="Project 3">
-                <h3>Task Manager</h3>
-                <p>A productivity app for organizing daily tasks.</p>
-            </div>
-        </div>
-        <!-- Modal for projects -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <div id="modal-body"></div>
-            </div>
-        </div>
+        <section class="projects-header">
+            <h2>My Projects</h2>
+            <p>Here's a collection of my work in data science, web development, and machine learning. Each project represents a unique challenge and learning opportunity.</p>
+        </section>
+        
+        <section class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="data">Data Science</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        </section>
+        
+        <section class="projects-gallery">
+            <!-- Projects will be dynamically loaded here -->
+        </section>
+        
+        <section class="cta-section">
+            <h3>Interested in working together?</h3>
+            <p>I'm always open to discussing new opportunities and interesting projects.</p>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+        </section>
     </main>
+    
+    <!-- Modal for projects -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
     <footer>
         <p>&copy; 2025 Lungani Zungu</p>
     </footer>
