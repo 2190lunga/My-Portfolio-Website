@@ -1,348 +1,423 @@
-// Dark/Light Theme Toggle
-function initTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+/* =========================
+   Global Backend (Google Apps Script)
+========================= */
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwW1ohV-Gg4ybS-gWgZOJbG9uYCuifk3FR5tdGOwFuxkTwpMO7FLsd33kVOQkjbOkQ2/exec";
 
-    if (themeToggle) {
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark');
-            themeToggle.textContent = '☀️';
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            const isDark = body.classList.contains('dark');
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    }
+async function sendToBackend(payload) {
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload),
+    });
+  } catch (e) {
+    console.log("Backend request failed (non-blocking):", e);
+  }
 }
 
-// Back to Top Button
-function initBackToTop() {
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
+/* ===== Helper: active nav link based on current page ===== */
+function setActiveNav() {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  const map = {
+    "index.html": "home",
+    "about.html": "about",
+    "projects.html": "projects",
+    "contact.html": "contact",
+    "analytics.html": "analytics",
+  };
+  const activeKey = map[path];
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+  document.querySelectorAll(".nav-links a").forEach((a) => {
+    a.classList.remove("active");
+    if (a.dataset.page === activeKey) a.classList.add("active");
+  });
 }
 
-// Project Data
-const projects = [
-    {
-        title: "Customer Segmentation Analysis",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "A comprehensive data analysis project that segments customers based on purchasing behavior using K-means clustering. The project includes data cleaning, feature engineering, and visualization of customer segments to help businesses target their marketing efforts more effectively.",
-        link: "#",
-        category: "data",
-        technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn", "K-means"]
-    },
-    {
-        title: "Portfolio Website",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Features dark/light mode, project filtering, animated skill bars, and a contact form. Fully optimized for mobile devices and SEO.",
-        link: "#",
-        category: "web",
-        technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "Git"]
-    },
-    {
-        title: "Sales Forecasting Model",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "A machine learning model that predicts future sales based on historical data. Utilizes time series analysis and regression algorithms to provide accurate forecasts for business planning and inventory management.",
-        link: "#",
-        category: "data",
-        technologies: ["Python", "Pandas", "Scikit-learn", "ARIMA", "Prophet", "Time Series"]
-    },
-    {
-        title: "Weather Dashboard",
-        image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "An interactive weather application that displays current conditions and forecasts using data from a public API. Features a clean UI with responsive design for all devices and real-time weather updates.",
-        link: "#",
-        category: "web",
-        technologies: ["JavaScript", "API Integration", "CSS", "HTML", "Async/Await"]
-    },
-    {
-        title: "Sentiment Analysis Tool",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "A natural language processing application that analyzes text sentiment using machine learning. Can classify text as positive, negative, or neutral with high accuracy for social media monitoring and customer feedback analysis.",
-        link: "#",
-        category: "data",
-        technologies: ["Python", "NLTK", "TextBlob", "Scikit-learn", "NLP"]
-    },
-    {
-        title: "Task Management App",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        desc: "A productivity application for managing daily tasks with features like adding, editing, deleting, and categorizing tasks. Includes local storage for data persistence and a clean, intuitive user interface.",
-        link: "#",
-        category: "web",
-        technologies: ["JavaScript", "Local Storage", "CSS", "HTML", "DOM Manipulation"]
-    }
-];
+/* ===== Mobile menu ===== */
+function initMobileMenu() {
+  const btn = document.getElementById("mobileMenuBtn");
+  const navLinks = document.getElementById("navLinks");
+  if (!btn || !navLinks) return;
 
-// Projects Management
-function initProjects() {
-    const projectsContainer = document.querySelector('.projects-gallery');
-    if (!projectsContainer) return;
-
-    renderProjects('all');
-    initProjectFilters();
-    initProjectModal();
+  btn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 }
 
-function renderProjects(category) {
-    const projectsContainer = document.querySelector('.projects-gallery');
-    if (!projectsContainer) return;
+/* ===== Track current page ===== */
+function inferPageName() {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  return path.replace(".html", "") || "home";
+}
 
-    // Clear container
-    projectsContainer.innerHTML = '';
+/* ===== Simple local analytics (kept) + global backend events ===== */
+class Analytics {
+  constructor() {
+    this.storageKey = "portfolio_analytics";
+    this.sessionKey = "portfolio_session";
+    this.data = this.loadData();
+    this.sessionId = this.getSessionId();
+  }
 
-    // Filter projects based on category
-    const filteredProjects = category === 'all' 
-        ? projects 
-        : projects.filter(project => project.category === category);
+  loadData() {
+    const stored = localStorage.getItem(this.storageKey);
+    if (stored) return JSON.parse(stored);
+    return {
+      totalVisitors: 0,
+      uniqueVisitors: [],
+      pageViews: {},
+      cvDownloads: 0,
+      formSubmissions: 0,
+      visitors: [],
+      projectClicks: [],
+      actions: [],
+      submissions: [],
+    };
+  }
 
-    // Add projects to container
-    filteredProjects.forEach((project, index) => {
-        const projectCard = createProjectCard(project, index);
-        projectsContainer.appendChild(projectCard);
+  saveData() {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.data));
+  }
+
+  getSessionId() {
+    let session = sessionStorage.getItem(this.sessionKey);
+    if (!session) {
+      session =
+        "visitor_" + Date.now() + "_" + Math.random().toString(36).slice(2, 11);
+      sessionStorage.setItem(this.sessionKey, session);
+      this.trackNewVisitor(session);
+    }
+    return session;
+  }
+
+  trackNewVisitor(sessionId) {
+    if (!this.data.uniqueVisitors.includes(sessionId)) {
+      this.data.uniqueVisitors.push(sessionId);
+      this.data.totalVisitors++;
+
+      const visitorData = {
+        id: sessionId,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer || "Direct",
+        language: navigator.language,
+        screenSize: `${window.screen.width}x${window.screen.height}`,
+      };
+
+      this.data.visitors.push(visitorData);
+      this.saveData();
+    }
+  }
+
+  trackPageView(pageName) {
+    if (!this.data.pageViews[pageName]) this.data.pageViews[pageName] = 0;
+    this.data.pageViews[pageName]++;
+
+    this.data.actions.push({
+      sessionId: this.sessionId,
+      action: "page_view",
+      page: pageName,
+      timestamp: new Date().toISOString(),
     });
 
-    // If no projects found, show message
-    if (filteredProjects.length === 0) {
-        projectsContainer.innerHTML = `
-            <div class="no-projects">
-                <p>No projects found in this category.</p>
-            </div>
-        `;
+    this.saveData();
+    this.updateDashboardIfExists();
+
+    // ✅ Global analytics event
+    sendToBackend({
+      type: "event",
+      sessionId: this.sessionId,
+      action: "page_view",
+      page: pageName,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  trackAction(actionType, details = "") {
+    this.data.actions.push({
+      sessionId: this.sessionId,
+      action: actionType,
+      details,
+      timestamp: new Date().toISOString(),
+    });
+
+    if (actionType === "cv_download") this.data.cvDownloads++;
+    if (actionType === "form_submit") this.data.formSubmissions++;
+    if (actionType === "project_click") {
+      this.data.projectClicks.push({
+        project: details,
+        timestamp: new Date().toISOString(),
+      });
     }
-}
 
-function createProjectCard(project, index) {
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    card.setAttribute('data-category', project.category);
-    
-    card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" 
-             onerror="this.src='https://via.placeholder.com/400x250/4361ee/ffffff?text=Project+Image'">
-        <h3>${project.title}</h3>
-        <p>${project.desc.substring(0, 100)}...</p>
-        <div class="tech-tags">
-            ${project.technologies.slice(0, 3).map(tech => 
-                `<span class="tech-tag">${tech}</span>`
-            ).join('')}
-            ${project.technologies.length > 3 ? 
-                `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
-        </div>
-    `;
+    this.saveData();
+    this.updateDashboardIfExists();
 
-    // Add click event
-    card.addEventListener('click', () => openModal(index));
-    
-    return card;
-}
-
-function initProjectFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get filter category
-            const filter = this.getAttribute('data-filter');
-            
-            // Render filtered projects
-            renderProjects(filter);
-        });
+    // ✅ Global analytics event
+    sendToBackend({
+      type: "event",
+      sessionId: this.sessionId,
+      action: actionType,
+      details: details,
+      page: inferPageName(),
+      timestamp: new Date().toISOString(),
     });
-}
+  }
 
-// Project Modal
-function initProjectModal() {
-    // Close modal when clicking outside
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('project-modal');
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
+  updateDashboardIfExists() {
+    const elVisitorCount = document.getElementById("visitorCount");
+    const elUnique = document.getElementById("uniqueVisitors");
+    const elPageViews = document.getElementById("pageViews");
+    const elCv = document.getElementById("cvDownloads");
+    const elForm = document.getElementById("formSubmissions");
 
-    // Close modal with Escape key
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-    });
-}
+    if (elVisitorCount) elVisitorCount.textContent = this.data.totalVisitors;
+    if (elUnique) elUnique.textContent = this.data.uniqueVisitors.length;
+    if (elPageViews)
+      elPageViews.textContent = Object.values(this.data.pageViews).reduce(
+        (a, b) => a + b,
+        0
+      );
+    if (elCv) elCv.textContent = this.data.cvDownloads;
+    if (elForm) elForm.textContent = this.data.formSubmissions;
 
-function openModal(index) {
-    const modal = document.getElementById('project-modal');
-    const modalBody = document.getElementById('modal-body');
-    
-    if (!modal || !modalBody || !projects[index]) return;
-
-    const project = projects[index];
-    
-    modalBody.innerHTML = `
-        <h3>${project.title}</h3>
-        <img src="${project.image}" alt="${project.title}" 
-             onerror="this.src='https://via.placeholder.com/600x300/4361ee/ffffff?text=Project+Image'">
-        <p>${project.desc}</p>
-        <div class="modal-tech-tags">
-            ${project.technologies.map(tech => 
-                `<span class="tech-tag">${tech}</span>`
-            ).join('')}
-        </div>
-        ${project.link && project.link !== "#" ? 
-            `<a href="${project.link}" target="_blank" class="project-link">View Project</a>` : 
-            '<p class="coming-soon">Project link coming soon!</p>'}
-    `;
-    
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    const modal = document.getElementById('project-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    const visitorList = document.getElementById("visitorList");
+    if (visitorList) {
+      visitorList.innerHTML = this.data.visitors
+        .slice(-10)
+        .reverse()
+        .map(
+          (v) => `
+          <li class="visitor-item">
+            <strong>${(v.id || "Unknown").substring(0, 20)}...</strong><br>
+            ${new Date(v.timestamp).toLocaleString()}<br>
+            <small>${v.referrer || "Direct"} | ${v.language || "N/A"}</small>
+          </li>
+        `
+        )
+        .join("");
     }
+
+    const pageStats = document.getElementById("pageStats");
+    if (pageStats) {
+      pageStats.innerHTML = Object.entries(this.data.pageViews)
+        .map(
+          ([page, views]) => `
+          <div style="background: rgba(0, 255, 255, 0.05); padding: 1rem; border-radius: 6px;">
+            <strong style="color: var(--neon-cyan);">${page}</strong>: ${views} views
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    const projectClicks = document.getElementById("projectClicks");
+    if (projectClicks) {
+      projectClicks.innerHTML = this.data.projectClicks
+        .slice(-10)
+        .reverse()
+        .map(
+          (p) => `
+          <li class="visitor-item">
+            <strong>${p.project}</strong><br>
+            ${new Date(p.timestamp).toLocaleString()}
+          </li>
+        `
+        )
+        .join("");
+    }
+
+    const formSubmissionsList = document.getElementById("formSubmissionsList");
+    if (formSubmissionsList) {
+      formSubmissionsList.innerHTML = this.data.submissions
+        .slice(-10)
+        .reverse()
+        .map(
+          (s) => `
+          <li class="visitor-item">
+            <strong>${s.name}</strong> - ${s.subject}<br>
+            ${s.email}<br>
+            <small>${new Date(s.timestamp).toLocaleString()}</small>
+          </li>
+        `
+        )
+        .join("");
+    }
+  }
 }
 
-// Skills Animation
-function initSkillsAnimation() {
-    const skillBars = document.querySelectorAll('.skill-bar');
-    if (skillBars.length === 0) return;
+const analytics = new Analytics();
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const progress = entry.target.querySelector('.progress');
-                const width = progress.getAttribute('data-width') + '%';
-                
-                // Reset to 0 first for animation
-                progress.style.width = '0%';
-                
-                // Animate after a small delay
-                setTimeout(() => {
-                    progress.style.width = width;
-                }, 100);
-                
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
+/* ===== CV Download ===== */
+function initCvDownload() {
+  const btn1 = document.getElementById("downloadCV");
+  const btn2 = document.getElementById("downloadCVBtn");
 
-    skillBars.forEach(bar => observer.observe(bar));
+  function downloadCV(e) {
+    if (e) e.preventDefault();
+    analytics.trackAction("cv_download");
+
+    const link = document.createElement("a");
+    link.href = "assets/files/Lungani_Zungu_CV.pdf";
+    link.download = "Lungani_Zungu_CV.pdf";
+    link.click();
+  }
+
+  if (btn1) btn1.addEventListener("click", downloadCV);
+  if (btn2) btn2.addEventListener("click", downloadCV);
 }
 
-// Stats Counter
-function initStatsCounter() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    if (statNumbers.length === 0) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                animateCounter(entry.target, target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(stat => observer.observe(stat));
-}
-
-function animateCounter(element, target) {
-    let current = 0;
-    const increment = target / 50; // Adjust speed here
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 30);
-}
-
-// Smooth Scrolling
-function initSmoothScrolling() {
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href === '#!') return;
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+/* ===== Projects click tracking ===== */
+function initProjectCards() {
+  document.querySelectorAll("[data-project]").forEach((card) => {
+    card.addEventListener("click", () => {
+      analytics.trackAction("project_click", card.dataset.project);
     });
+  });
 }
 
-// Contact form handling (for future implementation)
+/* ===== Contact form -> Google Apps Script Backend ===== */
 function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Simulate AJAX send (replace with real email service if needed)
-            const messageElement = document.getElementById('form-message');
-            if (messageElement) {
-                messageElement.textContent = 'Thank you for your message! I will respond soon.';
-                messageElement.style.color = 'var(--success-color)';
-            }
-            contactForm.reset();
-        });
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const submitBtn = document.getElementById("submitBtn");
+  const statusEl = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      type: "contact",
+      sessionId: analytics.sessionId,
+
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      subject: document.getElementById("subject").value.trim(),
+      message: document.getElementById("message").value.trim(),
+
+      // honeypot anti-spam (add hidden input in contact.html)
+      website: (document.getElementById("website")?.value || "").trim(),
+
+      timestamp: new Date().toISOString(),
+    };
+
+    // If honeypot is filled, silently pretend success (bots will fill it)
+    if (formData.website) {
+      statusEl.textContent = "✓ Message sent successfully!";
+      statusEl.style.color = "var(--neon-cyan)";
+      form.reset();
+      return;
     }
+
+    submitBtn.innerHTML = 'Sending... <span class="spinner"></span>';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json().catch(() => null);
+
+      if (!result || result.ok !== true) {
+        throw new Error(result?.message || "Failed to send.");
+      }
+
+      analytics.data.submissions.push(formData);
+      analytics.trackAction("form_submit", formData.name);
+
+      statusEl.textContent =
+        "✓ Message sent successfully! I will get back to you soon.";
+      statusEl.style.color = "var(--neon-cyan)";
+      form.reset();
+    } catch (error) {
+      statusEl.textContent =
+        "✗ Error sending message. Please try again or email directly.";
+      statusEl.style.color = "var(--accent)";
+      console.error(error);
+    } finally {
+      submitBtn.innerHTML = "Send Message";
+      submitBtn.disabled = false;
+    }
+  });
 }
 
-// Main Initialization
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Portfolio initialized successfully!');
-    
-    // Initialize all features
-    initTheme();
-    initBackToTop();
-    initProjects();
-    initSkillsAnimation();
-    initStatsCounter();
-    initSmoothScrolling();
-    initContactForm();
-    
-    // Close modal with close button
-    const closeBtn = document.querySelector('.modal .close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-});
+/* ===== Load GLOBAL analytics for analytics.html ===== */
+async function loadGlobalAnalyticsIfOnPage() {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  if (path !== "analytics.html") return;
 
-// Make functions globally available for HTML onclick attributes
-window.openModal = openModal;
-window.closeModal = closeModal;
+  try {
+    const res = await fetch(GOOGLE_SCRIPT_URL);
+    const data = await res.json();
+
+    if (!data || data.ok !== true) return;
+
+    // Totals
+    document.getElementById("pageViews").textContent =
+      data.totals?.pageViews ?? 0;
+    document.getElementById("uniqueVisitors").textContent =
+      data.totals?.uniqueVisitors ?? 0;
+    document.getElementById("cvDownloads").textContent =
+      data.totals?.cvDownloads ?? 0;
+    document.getElementById("formSubmissions").textContent =
+      data.totals?.formSubmissions ?? 0;
+
+    // Page stats
+    const pageStats = document.getElementById("pageStats");
+    if (pageStats && data.pageCounts) {
+      pageStats.innerHTML = Object.entries(data.pageCounts)
+        .map(
+          ([page, views]) => `
+          <div style="background: rgba(0, 255, 255, 0.05); padding: 1rem; border-radius: 6px;">
+            <strong style="color: var(--neon-cyan);">${page}</strong>: ${views} views
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    // Recent events (displayed under "Recent Visitors")
+    const visitorList = document.getElementById("visitorList");
+    if (visitorList && Array.isArray(data.recentEvents)) {
+      visitorList.innerHTML = data.recentEvents
+        .map(
+          (ev) => `
+          <li class="visitor-item">
+            <strong>${ev.action}</strong> — ${ev.page || "n/a"}<br>
+            <small>${new Date(ev.timestamp).toLocaleString()}</small>
+          </li>
+        `
+        )
+        .join("");
+    }
+
+    // Optional: could also populate projectClicks / formSubmissionsList from backend
+    // (your backend currently returns recentEvents only)
+  } catch (e) {
+    console.log("Failed to load global analytics:", e);
+  }
+}
+
+/* ===== Init ===== */
+window.addEventListener("DOMContentLoaded", () => {
+  setActiveNav();
+  initMobileMenu();
+
+  const pageName = inferPageName();
+  analytics.trackPageView(pageName);
+
+  initCvDownload();
+  initProjectCards();
+  initContactForm();
+
+  // Local dashboard updates (for pages that use localStorage)
+  analytics.updateDashboardIfExists();
+
+  // Global dashboard updates (analytics.html)
+  loadGlobalAnalyticsIfOnPage();
+});
