@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /analytics.html
+Disallow: /assets/backend/
+
+Sitemap: https://2190lunga.github.io/My-Portfolio-Website/sitemap.xml

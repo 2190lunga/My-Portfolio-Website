@@ -23,6 +23,8 @@ function setActiveNav() {
     "index.html": "home",
     "about.html": "about",
     "projects.html": "projects",
+    "case-studies.html": "case-studies",
+    "blog.html": "blog",
     "contact.html": "contact",
     "analytics.html": "analytics",
   };
@@ -258,10 +260,31 @@ function initCvDownload() {
     if (e) e.preventDefault();
     analytics.trackAction("cv_download");
 
-    const link = document.createElement("a");
-    link.href = "assets/files/Lungani_Zungu_CV.pdf";
-    link.download = "Lungani_Zungu_CV.pdf";
-    link.click();
+    const cvPath = "assets/files/Lungani_Zungu_CV.pdf";
+
+    // Check if file exists before downloading
+    fetch(cvPath, { method: "HEAD" })
+      .then((res) => {
+        if (res.ok) {
+          const link = document.createElement("a");
+          link.href = cvPath;
+          link.download = "Lungani_Zungu_CV.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          alert("CV file is not available yet. Please check back later or contact me directly.");
+        }
+      })
+      .catch(() => {
+        // If running locally via file://, just attempt download directly
+        const link = document.createElement("a");
+        link.href = cvPath;
+        link.download = "Lungani_Zungu_CV.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
   }
 
   if (btn1) btn1.addEventListener("click", downloadCV);

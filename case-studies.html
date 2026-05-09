@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies - Lungani Zungu | Detailed Project Breakdowns</title>
+  <meta name="description" content="Detailed case studies of production systems built by Lungani Zungu at BMW Group. Problem, solution, impact, and technology breakdown." />
+  <meta property="og:title" content="Case Studies | Lungani Zungu" />
+  <meta property="og:description" content="How I built 9 production systems at BMW Group  detailed breakdowns with real metrics." />
+  <meta property="og:image" content="https://2190lunga.github.io/My-Portfolio-Website/assets/images/og-image.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .case-study { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; position: relative; overflow: hidden; }
+    .case-study::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-primary); }
+    .case-study-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--neon-cyan); margin-bottom: 0.5rem; font-weight: 600; }
+    .case-study h3 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; }
+    .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    .case-study-block h4 { color: var(--neon-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.8rem; }
+    .case-study-block p, .case-study-block li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; }
+    .case-study-block ul { padding-left: 1.2rem; }
+    .metric-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+    .metric-box { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 1rem 1.5rem; text-align: center; }
+    .metric-box .number { font-size: 1.8rem; font-weight: 800; color: #10b981; }
+    .metric-box .label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem; }
+    @media (max-width: 768px) { .case-study-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="cyber-bg"></div>
+  <div class="scan-line"></div>
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/images/profile.jpg" alt="Lungani Zungu" class="nav-profile-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="nav-profile-fallback" style="display:none;">LZ</div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="case-studies.html" data-page="case-studies">Case Studies</a></li>
+        <li><a href="blog.html" data-page="blog">Blog</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Deep Dives</span>
+        <h2 class="section-title">Case Studies</h2>
+        <p style="color: var(--text-secondary); margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Detailed breakdowns of production systems I built - the problem, my approach, and measurable results.</p>
+      </div>
+
+      <!-- Case Study 1: Work Organisation Toolset -->
+      <div class="case-study">
+        <div class="case-study-label">Case Study #1</div>
+        <h3>Work Organisation Toolset</h3>
+        <div class="case-study-grid">
+          <div class="case-study-block">
+            <h4>&#9888;&#65039; The Problem</h4>
+            <p>BMW Plant Rosslyn's production teams managed rotation planning, attendance tracking, and skills matrices using paper forms and Excel. Team leaders spent 75% of their planning time on manual processes, training mismatches went undetected, and there was zero visibility into workforce readiness.</p>
+          </div>
+          <div class="case-study-block">
+            <h4>&#128161; The Solution</h4>
+            <p>Built a complete workforce management platform with 7 live modules:</p>
+            <ul>
+              <li>Rotation planning with skills highlighting</li>
+              <li>Attendance with escalated alerts (1hr &#8594; management at 4hrs)</li>
+              <li>Headcount management</li>
+              <li>Skills matrix (Levels 1-4 with 6-week decay logic)</li>
+              <li>Training documentation</li>
+              <li>Relief management</li>
+              <li>Auto end-of-shift reports</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-study-block" style="margin-top: 1rem;">
+          <h4>&#128640; Tech Stack</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">AWS Lambda</span>
+            <span class="tech-tag">DynamoDB</span>
+            <span class="tech-tag">API Gateway</span>
+            <span class="tech-tag">AWS Amplify</span>
+            <span class="tech-tag">Cognito Auth</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-box"><div class="number">75%</div><div class="label">Planning time reduced</div></div>
+          <div class="metric-box"><div class="number">100%</div><div class="label">Training mismatches eliminated</div></div>
+          <div class="metric-box"><div class="number">0</div><div class="label">Paper forms remaining</div></div>
+          <div class="metric-box"><div class="number">95%+</div><div class="label">User adoption rate</div></div>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Rework Tracking -->
+      <div class="case-study">
+        <div class="case-study-label">Case Study #2</div>
+        <h3>Rework Tracking System</h3>
+        <div class="case-study-grid">
+          <div class="case-study-block">
+            <h4>&#9888;&#65039; The Problem</h4>
+            <p>When vehicles entered rework bays, technicians had to manually look up defects in quality defect management system, cross-reference with their work area, and manually log time spent. This wasted time, caused errors, and made it impossible to measure rework efficiency.</p>
+          </div>
+          <div class="case-study-block">
+            <h4>&#128161; The Solution</h4>
+            <p>Integrated vehicle positioning system (geofencing) (vehicle location) with quality defect management system (defect data) into a React app that:</p>
+            <ul>
+              <li>Auto-detects vehicle entry/exit from rework bay</li>
+              <li>Pulls defects by VIN automatically</li>
+              <li>Filters defects by work area</li>
+              <li>Records session duration for each rework</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-study-block" style="margin-top: 1rem;">
+          <h4>&#128640; Tech Stack</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">vehicle positioning system Geofencing</span>
+            <span class="tech-tag">quality defect management system Defect API</span>
+            <span class="tech-tag">AWS Lambda</span>
+            <span class="tech-tag">DynamoDB</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-box"><div class="number">20%</div><div class="label">Rework time reduced</div></div>
+          <div class="metric-box"><div class="number">100%</div><div class="label">Manual lookup eliminated</div></div>
+        </div>
+      </div>
+
+      <!-- Case Study 3: AWS Hackathon -->
+      <div class="case-study">
+        <div class="case-study-label">Case Study #3</div>
+        <h3>AWS Serverless Data Pipeline (Hackathon)</h3>
+        <div class="case-study-grid">
+          <div class="case-study-block">
+            <h4>&#9888;&#65039; The Challenge</h4>
+            <p>Build a complete end-to-end serverless data pipeline during BMW's AWS Hackathon - from raw data ingestion to an embedded analytics dashboard with authentication.</p>
+          </div>
+          <div class="case-study-block">
+            <h4>&#128161; The Solution</h4>
+            <p>Designed and deployed a full pipeline:</p>
+            <ul>
+              <li>S3 bucket for raw data landing</li>
+              <li>Lambda ETL for transformation</li>
+              <li>Glue crawlers for schema discovery</li>
+              <li>Athena for serverless querying</li>
+              <li>QuickSight dashboards</li>
+              <li>Cognito authentication</li>
+              <li>React embed for end users</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-study-block" style="margin-top: 1rem;">
+          <h4>&#128640; Tech Stack</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+            <span class="tech-tag">S3</span>
+            <span class="tech-tag">Lambda</span>
+            <span class="tech-tag">Glue</span>
+            <span class="tech-tag">Athena</span>
+            <span class="tech-tag">QuickSight</span>
+            <span class="tech-tag">Cognito</span>
+            <span class="tech-tag">React</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-box"><div class="number">&#127942;</div><div class="label">Certificate Awarded</div></div>
+          <div class="metric-box"><div class="number">100%</div><div class="label">Serverless architecture</div></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2026 Lungani Zungu. All rights reserved.</p>
+        <div class="social-links">
+          <a href="mailto:lunganizungu2018@gmail.com" class="social-btn" title="Email">&#128231;</a>
+          <a href="https://www.linkedin.com/in/lungani-zungu/" target="_blank" class="social-btn" title="LinkedIn">&#128188;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

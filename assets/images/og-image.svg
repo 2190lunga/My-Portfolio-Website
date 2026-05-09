@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a14"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff"/>
+      <stop offset="100%" style="stop-color:#d500f9"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="250" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="72" fill="#ffffff">LUNGANI ZUNGU</text>
+  <text x="600" y="340" text-anchor="middle" font-family="sans-serif" font-weight="400" font-size="36" fill="#9ca3af">Data &amp; Analytics Engineer</text>
+  <text x="600" y="430" text-anchor="middle" font-family="sans-serif" font-weight="400" font-size="24" fill="#00e5ff">9 Production Systems | AWS | React | Power BI | Python</text>
+  <rect x="0" y="626" width="1200" height="4" fill="url(#grad)"/>
+</svg>

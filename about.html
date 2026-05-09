@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Lungani Zungu</title>
+  <title>About Lungani Zungu | Software Engineer</title>
+  <meta name="description" content="Software Engineer with 3+ years experience at BMW Group and MTN. 9 production systems live. AWS, React, Node.js, Python, Power BI. BSc Computer Science." />
+  <meta name="author" content="Lungani Zungu" />
+  <meta property="og:title" content="About Lungani Zungu | Software Engineer" />
+  <meta property="og:description" content="Software Engineer with 3+ years experience at BMW Group and MTN. 9 production systems live. AWS, React, Node.js, Python, Power BI. BSc Computer Science." />
+  <meta property="og:image" content="https://2190lunga.github.io/My-Portfolio-Website/assets/images/profile.jpg" />
+  <meta property="og:url" content="https://2190lunga.github.io/My-Portfolio-Website/about.html" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -13,15 +21,20 @@
 
   <nav>
     <div class="nav-container">
-      <div class="logo">LZ.DEV</div>
+      <div class="logo">
+        <img src="assets/images/profile.jpg" alt="Lungani Zungu" class="nav-profile-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="nav-profile-fallback" style="display:none;">LZ</div>
+      </div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-page="home">Home</a></li>
-        <li><a href="about.html" data-page="about">About</a></li>
-        <li><a href="projects.html" data-page="projects">Projects</a></li>
-        <li><a href="contact.html" data-page="contact">Contact</a></li>
-        <li><a href="analytics.html" data-page="analytics">Analytics</a></li>
+        <li><a href="index.html"  data-page="home">Home</a></li>
+        <li><a href="about.html" class="active" data-page="about">About</a></li>
+        <li><a href="projects.html"  data-page="projects">Projects</a></li>
+        <li><a href="case-studies.html"  data-page="case-studies">Case Studies</a></li>
+        <li><a href="blog.html"  data-page="blog">Blog</a></li>
+        <li><a href="contact.html"  data-page="contact">Contact</a></li>
       </ul>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
     </div>
   </nav>
 
@@ -35,46 +48,284 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            Strategic and innovative Software Developer Graduate with experience in digitalisation,
-            process optimization, and data-driven solutions within the automotive and telecommunications industries.
+            I am a Software Engineer with a strong background in cloud application development,
+            data engineering, and full-stack development. I specialise in building production-grade
+            systems that solve real operational problems - not prototypes, but live tools
+            used daily by real people.
           </p>
           <p>
-            Proven ability to transform manual workflows into scalable digital applications, develop
-            interactive Power BI dashboards, and leverage AWS cloud architecture for efficiency and insight.
+            At BMW Group South Africa, I have independently designed, built, and deployed
+            9 production systems on AWS. At MTN, I delivered data science solutions that
+            measurably reduced call centre volume by 25%.
           </p>
           <p>
-            Skilled in full-stack development, data analytics, and business intelligence, with a strong
-            commitment to driving operational excellence and delivering measurable impact within the
-            banking and financial sectors.
+            I believe the best software starts on the shop floor, not in a boardroom -
+            which is why I conduct regular GEMBA walks to understand user needs before writing
+            a single line of code.
           </p>
         </div>
 
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-date">March 2025 – Present</div>
-            <h3 class="timeline-title">Software Developer Graduate</h3>
+            <div class="timeline-date">March 2025 - Present</div>
+            <h3 class="timeline-title">Software Engineer</h3>
             <p class="timeline-company">BMW Group South Africa</p>
           </div>
           <div class="timeline-item">
-            <div class="timeline-date">April 2023 – March 2025</div>
+            <div class="timeline-date">April 2023 - March 2025</div>
             <h3 class="timeline-title">Data Scientist Graduate</h3>
             <p class="timeline-company">MTN South Africa</p>
           </div>
           <div class="timeline-item">
-            <div class="timeline-date">Graduated May 2023</div>
-            <h3 class="timeline-title">Bachelor of Computer Science and Statistics</h3>
+            <div class="timeline-date">2026 - 2027 (expected)</div>
+            <h3 class="timeline-title">PGDip Data Science (In Progress)</h3>
             <p class="timeline-company">University of KwaZulu-Natal</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2022</div>
+            <h3 class="timeline-title">BSc Computer Science &amp; Statistics</h3>
+            <p class="timeline-company">University of KwaZulu-Natal - Average: 78%</p>
           </div>
         </div>
       </div>
 
+      <!-- EDUCATION -->
+      <div class="education-section">
+        <div class="section-header">
+          <span class="section-tag">Learning &amp; Growth</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-categories">
+          <div class="edu-category" style="border-color:rgba(168,85,247,0.3);box-shadow:0 0 30px rgba(168,85,247,0.08);">
+            <div class="edu-category-header">
+              <div class="edu-category-icon">&#127891;</div>
+              <h3 class="edu-category-title">Postgraduate Diploma in Data Science</h3>
+            </div>
+            <div class="edu-item">
+              <div class="edu-item-subtitle">University of KwaZulu-Natal</div>
+              <div class="edu-item-date">2026 - 2027 (expected) &middot; <span style="color:var(--neon-cyan);">In Progress</span></div>
+            </div>
+            <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:1rem;line-height:1.9;font-size:0.95rem;">
+              <li>Advanced data science, machine learning, and cloud analytics</li>
+              <li>Predictive modelling, big data pipelines, and production ML systems</li>
+            </ul>
+          </div>
+          <div class="edu-category" style="opacity:0.85;">
+            <div class="edu-category-header">
+              <div class="edu-category-icon">&#128218;</div>
+              <h3 class="edu-category-title">BSc Computer Science &amp; Statistics</h3>
+            </div>
+            <div class="edu-item">
+              <div class="edu-item-subtitle">University of KwaZulu-Natal</div>
+              <div class="edu-item-date">2020 - 2022 &middot; Average: 78%</div>
+            </div>
+            <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:1rem;line-height:1.9;font-size:0.9rem;">
+              <li>Statistical inference, data structures, algorithms, database systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="education-section">
+        <div class="section-header">
+          <span class="section-tag">Professional Experience</span>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+        <div class="education-categories">
+
+          <!-- BMW -->
+          <div class="edu-category">
+            <div class="edu-category-header">
+              <div class="edu-category-icon">&#128663;</div>
+              <h3 class="edu-category-title">Software Engineer</h3>
+            </div>
+            <div class="edu-item">
+              <div class="edu-item-subtitle">BMW Group South Africa - Resource &amp; Technology Steering</div>
+              <div class="edu-item-date">March 2025 - Present &middot; Plant Rosslyn, Pretoria</div>
+            </div>
+
+            <h4 style="color:#fff;margin-top:1.5rem;margin-bottom:1rem;font-size:1rem;">9 Production Systems Built - All Live, All Adopted</h4>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">1. Workforce Management Platform</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - React, Node.js, AWS Lambda, DynamoDB, API Gateway, Cognito, EventBridge, S3, CloudFront</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>7 modules: rotation planning, attendance tracking with automated escalation alerts, headcount management, skills matrix with decay logic, training records, relief management, automated shift reports</li>
+                <li style="color:#10b981;">Impact: 75% planning time reduction &middot; 100% training mismatch elimination &middot; zero paper</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">2. Rework Tracking System</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - React, Geofencing integration, Quality defect data API, AWS Lambda, DynamoDB</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Auto-detects vehicle entry/exit, pulls defects by VIN, filters by work area, records session duration</li>
+                <li style="color:#10b981;">Impact: 20% rework reduction &middot; 100% manual lookup eliminated</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">3. Workshop Job Card System</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - Node.js, AWS Lambda, PostgreSQL (RDS), API Gateway, S3, SNS, AWS SAM, CloudFront</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>End-to-end digital job card system replacing paper-based workshop processes. File uploads, automated alerts, relational database.</li>
+                <li style="color:#10b981;">Impact: Zero paper job cards &middot; real-time workshop visibility</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">4. Headcount Management Dashboard</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - Node.js, AWS Lambda, API Gateway, S3, CloudFront, Cognito, Amplify</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Cloud-based headcount reporting and upload pipeline for Resource &amp; Technology Steering</li>
+                <li style="color:#10b981;">Impact: Monthly manual Excel reporting eliminated</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">5. Production Monitoring Dashboard</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - React, S3, CloudFront, AWS Amplify</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Real-time production takt stability monitoring for plant line managers</li>
+                <li style="color:#10b981;">Impact: Live production visibility replacing manual tracking</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">6. Attendance Tracking Tool</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - HTML5, CSS3, Vanilla JavaScript, SheetJS, S3, CloudFront, Amplify</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Lightweight zero-install browser tool with Excel export, optimised for shop floor devices</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">7. ML Rotation Suggestion Engine</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - Python, scikit-learn (in development)</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Skill decay logic, ergonomic safety rules (max exposure limits), fairness scoring for rotation suggestions</li>
+                <li style="color:#10b981;">Target: 80% further planning time reduction</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">8. Power BI Dashboard Suite</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - Power BI, DAX, Excel, ETL</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>4 production dashboards: headcount waterfall, line balancing KPIs, defect tracking, scrap cost analysis</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+              <strong style="color:#fff;">9. AWS Serverless Data Pipeline (Hackathon - Certificate Awarded)</strong>
+              <span style="font-size:0.8rem;color:var(--text-secondary);"> - S3, Lambda, Glue, Athena, QuickSight, Cognito, React</span>
+              <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:0.5rem;line-height:1.8;font-size:0.85rem;">
+                <li>Full end-to-end serverless data pipeline: ingestion &rarr; ETL &rarr; cataloguing &rarr; querying &rarr; embedded analytics dashboard with authentication</li>
+              </ul>
+            </div>
+
+            <h4 style="color:#fff;margin-top:1.5rem;margin-bottom:0.8rem;font-size:1rem;">GEMBA &amp; Training Program</h4>
+            <ul style="color:var(--text-secondary);padding-left:1.2rem;line-height:1.8;font-size:0.85rem;">
+              <li>Regular shop floor walks to observe real usage and close the gap between design and reality</li>
+              <li>Structured training with signed acknowledgments, user guides, and video tutorials</li>
+              <li>Achieved <strong style="color:#10b981;">95%+ adoption rate</strong> across all 9 systems</li>
+            </ul>
+
+            <!-- Impact tags -->
+            <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">75% planning time saved</span>
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">100% training mismatches eliminated</span>
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">20% rework reduction</span>
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">95%+ user adoption</span>
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">50% root cause analysis time saved</span>
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">2-weeks-faster bottleneck resolution</span>
+              <span class="tech-tag" style="background:rgba(255,215,0,0.15);border-color:rgba(255,215,0,0.4);color:#fbbf24;">&#127942; AWS Hackathon 1st Place</span>
+            </div>
+            <!-- Tech tags -->
+            <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">AWS Lambda</span>
+              <span class="tech-tag">DynamoDB</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">S3</span>
+              <span class="tech-tag">CloudFront</span>
+              <span class="tech-tag">Glue</span>
+              <span class="tech-tag">Athena</span>
+              <span class="tech-tag">QuickSight</span>
+              <span class="tech-tag">Amplify</span>
+              <span class="tech-tag">Cognito</span>
+              <span class="tech-tag">API Gateway</span>
+              <span class="tech-tag">AWS SAM</span>
+              <span class="tech-tag">EventBridge</span>
+              <span class="tech-tag">Power BI (DAX)</span>
+              <span class="tech-tag">Qlik Sense</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+
+          <!-- MTN -->
+          <div class="edu-category">
+            <div class="edu-category-header">
+              <div class="edu-category-icon">&#128225;</div>
+              <h3 class="edu-category-title">Data Scientist Graduate</h3>
+            </div>
+            <div class="edu-item">
+              <div class="edu-item-subtitle">MTN South Africa - Financial Services Analytics</div>
+              <div class="edu-item-date">April 2023 - March 2025</div>
+            </div>
+            <ul style="color:var(--text-secondary);padding-left:1.2rem;margin-top:1rem;line-height:1.9;font-size:0.9rem;">
+              <li>Analysed large financial and operational datasets using Python, SQL, SAS, and R for executive decision-making</li>
+              <li>Built Power BI dashboards tracking revenue, cost efficiency, and customer KPIs - used daily by senior leadership</li>
+              <li>Delivered customer behaviour analysis contributing to a <strong style="color:#10b981;">25% sustained reduction in call centre volume</strong></li>
+              <li>Worked with regulated financial data, revenue modelling, and compliance reporting</li>
+              <li>Collaborated with finance, marketing, and operations teams to translate business needs into analytics solutions</li>
+            </ul>
+            <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">25% call volume reduction</span>
+            </div>
+            <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">SAS</span>
+              <span class="tech-tag">R</span>
+              <span class="tech-tag">Power BI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECH STACK -->
+      <div class="skills-section">
+        <div class="section-header">
+          <span class="section-tag">Tech Stack</span>
+          <h2 class="section-title">Technologies I Use</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-chip"><span class="skill-icon">&#128013;</span>Python</div>
+          <div class="skill-chip"><span class="skill-icon">&#9889;</span>JavaScript</div>
+          <div class="skill-chip"><span class="skill-icon">&#128451;</span>SQL</div>
+          <div class="skill-chip"><span class="skill-icon">&#9729;&#65039;</span>AWS</div>
+          <div class="skill-chip"><span class="skill-icon">&#128202;</span>Power BI</div>
+          <div class="skill-chip"><span class="skill-icon">&#9883;</span>React</div>
+          <div class="skill-chip"><span class="skill-icon">&#128230;</span>Node.js</div>
+          <div class="skill-chip"><span class="skill-icon">&#128295;</span>Git</div>
+          <div class="skill-chip"><span class="skill-icon">&#128200;</span>Qlik Sense</div>
+          <div class="skill-chip"><span class="skill-icon">&#128202;</span>scikit-learn</div>
+          <div class="skill-chip"><span class="skill-icon">&#128200;</span>R / SAS</div>
+          <div class="skill-chip"><span class="skill-icon">&#128451;</span>DynamoDB</div>
+          <div class="skill-chip"><span class="skill-icon">&#128451;</span>PostgreSQL</div>
+        </div>
+      </div>
+
+      <!-- CV -->
       <div class="cv-section">
-        <h3>📄 Resume / CV</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-          Download my latest CV
-        </p>
+        <h3>&#128196; Resume / CV</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1rem;">Download my latest CV to learn more about my experience and qualifications.</p>
         <div class="cv-actions">
-          <button class="btn" id="downloadCVBtn">⬇ Download Current CV</button>
+          <button class="btn" id="downloadCVBtn" onclick="window.open('assets/files/Lungani_Zungu_CV.pdf')">&#11015; Download CV (PDF)</button>
         </div>
       </div>
     </div>
@@ -83,15 +334,14 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <p>&copy; 2025 Lungani Zungu. All rights reserved.</p>
+        <p>&copy; 2026 Lungani Zungu. All rights reserved.</p>
         <div class="social-links">
-          <a href="mailto:lunganizungu2018@gmail.com" class="social-btn" title="Email">📧</a>
-          <a href="https://www.linkedin.com/in/lungani-zungu" target="_blank" class="social-btn" title="LinkedIn">💼</a>
+          <a href="mailto:lunganizungu2018@gmail.com" class="social-btn" title="Email">&#128231;</a>
+          <a href="https://www.linkedin.com/in/lungani-zungu/" target="_blank" class="social-btn" title="LinkedIn">&#128188;</a>
         </div>
       </div>
     </div>
   </footer>
-
   <script src="assets/js/app.js"></script>
 </body>
 </html>
