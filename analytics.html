@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analytics - Lungani Zungu</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -33,11 +37,19 @@
       </div>
 
       <div class="tracking-dashboard">
-        <h3 style="color: var(--neon-cyan); font-family: 'Outfit', sans-serif; margin-bottom: 2rem;">
+        <h3 style="color: var(--neon-cyan); font-family: 'Outfit', sans-serif; margin-bottom: 0.5rem;">
           Real-Time Tracking Dashboard
         </h3>
+        <p id="globalStatsStatus" style="color:var(--color-text-secondary);font-size:0.85rem;margin-bottom:2rem;font-style:italic;">
+          ⏳ Loading remote data…
+        </p>
 
         <div class="tracking-grid">
+          <div class="tracking-card">
+            <h4>Total Sessions</h4>
+            <div style="font-size: 2rem; color: var(--neon-cyan);" id="visitorCount">0</div>
+          </div>
+
           <div class="tracking-card">
             <h4>Total Page Views</h4>
             <div style="font-size: 2rem; color: var(--neon-cyan);" id="pageViews">0</div>
@@ -94,6 +106,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
+

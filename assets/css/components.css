@@ -1,0 +1,632 @@
+/*
+ * components.css
+ * ─────────────────────────────────────────────────────────
+ * Purpose : Reusable UI components — buttons, cards, tags,
+ *           forms, timeline, project visuals, result
+ *           callouts, and analytics dashboard widgets.
+ *
+ * Author  : Lungani Zungu
+ * Site    : lunganizungu.dev
+ * ─────────────────────────────────────────────────────────
+ */
+
+/* ── Buttons ─────────────────────────────────────────────
+   Primary   .btn
+   Secondary .btn--secondary (BEM modifier)
+   ──────────────────────────────────────────────────────── */
+.btn {
+  padding: 0.9rem 2rem;
+  border: 1.5px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on hover — drawn attention without heavy JS */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before { left: 100%; }
+
+.btn:hover {
+  background: rgba(168, 85, 247, 0.1);
+  color: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.05);
+  transform: translateY(-2px);
+}
+
+/* BEM modifier: secondary style */
+.btn-secondary,
+.btn--secondary {
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
+}
+
+.btn-secondary:hover,
+.btn--secondary:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--color-accent-dark);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+}
+
+/* ── Spinner (loading state inside buttons) ─────────────── */
+.spinner {
+  border: 3px solid rgba(168, 85, 247, 0.1);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* ── Stat Card ──────────────────────────────────────────── */
+.stat-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top-edge gradient reveal on hover */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-card:hover::before { opacity: 1; }
+
+.stat-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Project Card ───────────────────────────────────────── */
+.project-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition-slow);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top gradient stripe appears on hover */
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::after { opacity: 1; }
+
+.project-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+}
+
+.project-icon {
+  font-size: 2.2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.project-description {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* "The Problem" / "The Solution" micro-labels above paragraphs */
+.project-label {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0.8rem 0 0.4rem;
+}
+
+/* ── Project — Visual Banner (CSS art, no image needed) ─── */
+.project-visual {
+  height: 130px;
+  border-radius: 12px 12px 0 0;
+  margin: -2rem -2rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid overlay: gives a "technical dashboard" feel */
+.project-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 19px, rgba(255,255,255,0.04) 19px, rgba(255,255,255,0.04) 20px),
+    repeating-linear-gradient(90deg,  transparent, transparent 19px, rgba(255,255,255,0.04) 19px, rgba(255,255,255,0.04) 20px);
+}
+
+.pv-icon {
+  font-size: 3.8rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* Mock bar-chart silhouette at banner base */
+.pv-bars {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  padding: 0 1rem;
+  height: 52px;
+  opacity: 0.18;
+}
+
+.pv-bars span {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: rgba(255, 255, 255, 0.9);
+  min-height: 4px;
+}
+
+/* Per-project colour themes — each project has a unique identity */
+.pv-workforce  { background: linear-gradient(135deg, #1a0533 0%, #4a0090 50%, #7c3aed 100%); }
+.pv-jobcard    { background: linear-gradient(135deg, #001a33 0%, #0a4f7a 50%, #0ea5e9 100%); }
+.pv-rework     { background: linear-gradient(135deg, #001f14 0%, #065f46 50%, #10b981 100%); }
+.pv-headcount  { background: linear-gradient(135deg, #1a1a00 0%, #7c5e00 50%, #f59e0b 100%); }
+.pv-takt       { background: linear-gradient(135deg, #1a0000 0%, #7f1d1d 50%, #ef4444 100%); }
+.pv-attendance { background: linear-gradient(135deg, #001a1a 0%, #155e75 50%, #06b6d4 100%); }
+.pv-ml         { background: linear-gradient(135deg, #0d0026 0%, #312e81 50%, #6366f1 100%); }
+.pv-powerbi    { background: linear-gradient(135deg, #1a0010 0%, #831843 50%, #ec4899 100%); }
+.pv-pipeline   { background: linear-gradient(135deg, #100a00 0%, #92400e 50%, #f97316 100%); }
+
+/* ── Project — Impact Result Callout ────────────────────── */
+/* Reason: green left-border draws the eye to the business value metric */
+.project-result {
+  margin: 1.2rem 0 0.5rem;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--color-success);
+  background: rgba(16, 185, 129, 0.07);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.88rem;
+  color: var(--color-success);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.project-result span {
+  opacity: 0.7;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* ── Project — Link Buttons ─────────────────────────────── */
+.project-links {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.project-link-btn {
+  padding: 0.38rem 0.9rem;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-link-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(168, 85, 247, 0.05);
+}
+
+/* ── Tech Tags ──────────────────────────────────────────── */
+.project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.tech-tag {
+  padding: 0.35rem 0.9rem;
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ── Social Links (footer) ──────────────────────────────── */
+.social-links { display: flex; gap: 1rem; }
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-card-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.social-btn:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(168, 85, 247, 0.15);
+}
+
+/* ── Timeline (Experience / Education) ──────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* Vertical gradient line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark), transparent);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 1.5rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 12px;
+  transition: var(--transition-base);
+}
+
+.timeline-item:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateX(5px);
+}
+
+/* Dot on the timeline line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 1.8rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 15px var(--color-accent);
+  border: 2px solid var(--color-bg);
+}
+
+.timeline-date    { color: var(--color-accent-dark); font-size: 0.85rem; margin-bottom: 0.5rem; font-weight: 600; }
+.timeline-title   { font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.3rem; }
+.timeline-company { color: var(--color-accent); font-weight: 500; }
+
+/* ── Education Cards ────────────────────────────────────── */
+.education-section     { margin: 4rem 0; }
+
+.education-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.edu-category {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition-base);
+}
+
+.edu-category:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-5px);
+}
+
+.edu-category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.edu-category-icon {
+  font-size: 1.8rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(168, 85, 247, 0.08);
+  border-radius: 12px;
+}
+
+.edu-category-title { font-size: 1.2rem; font-weight: 700; color: #fff; }
+
+.edu-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.edu-item:last-child  { border-bottom: none; }
+.edu-item-title       { font-weight: 600; color: var(--color-text-primary); margin-bottom: 0.2rem; }
+.edu-item-subtitle    { font-size: 0.9rem; color: var(--color-accent); margin-bottom: 0.2rem; }
+.edu-item-date        { font-size: 0.8rem; color: var(--color-text-secondary); }
+
+/* ── Skill Chips ────────────────────────────────────────── */
+.skills-section { margin: 4rem 0; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.skill-chip {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 10px;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: var(--transition-base);
+}
+
+.skill-chip:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(168, 85, 247, 0.1);
+}
+
+.skill-chip .skill-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Contact Info Items ──────────────────────────────────── */
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 14px;
+  transition: var(--transition-base);
+}
+
+.contact-item:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(168, 85, 247, 0.08);
+  border-radius: 12px;
+}
+
+.contact-details h3  { color: #fff; margin-bottom: 0.3rem; font-size: 1rem; font-weight: 600; }
+.contact-details a,
+.contact-details p   { color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; }
+.contact-details a:hover { color: var(--color-accent); }
+
+/* ── Contact Form ────────────────────────────────────────── */
+.contact-form {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-card-border);
+  border-radius: 10px;
+  color: var(--color-text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  transition: var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+  background: rgba(168, 85, 247, 0.03);
+}
+
+.form-group textarea { resize: vertical; min-height: 130px; }
+
+/* Honeypot — hidden from users, catches bots that fill all fields */
+.hp-field { position: absolute; left: -9999px; opacity: 0; }
+
+/* ── CV Download Section ─────────────────────────────────── */
+.cv-section {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 3rem;
+  margin: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+.cv-section h3  { font-size: 1.8rem; margin-bottom: 0.8rem; color: #fff; }
+.cv-actions     { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+/* ── Analytics Dashboard ─────────────────────────────────── */
+.tracking-dashboard {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tracking-card {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-card-border);
+}
+
+.tracking-card h4 { color: var(--color-accent); margin-bottom: 1rem; font-weight: 600; }
+
+.visitor-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.visitor-item {
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+  background: rgba(168, 85, 247, 0.03);
+  border: 1px solid rgba(168, 85, 247, 0.08);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}

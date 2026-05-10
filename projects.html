@@ -32,153 +32,26 @@
         <li><a href="case-studies.html"  data-page="case-studies">Case Studies</a></li>
         <li><a href="blog.html"  data-page="blog">Blog</a></li>
         <li><a href="contact.html"  data-page="contact">Contact</a></li>
+        <li><a href="analytics.html" data-page="analytics">Analytics</a></li>
       </ul>
       <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
     </div>
   </nav>
   <main class="page">
     <div class="container">
-      <div class="section-header">
+      <section class="section-header" aria-label="Projects overview">
         <span class="section-tag">My Work</span>
-        <h2 class="section-title">Production Systems</h2>
-        <p style="color:var(--text-secondary);margin-top:1rem;max-width:600px;margin-left:auto;margin-right:auto;">
+        <h1 class="section-title">Production Systems</h1>
+        <p style="color:var(--color-text-secondary);margin-top:1rem;max-width:600px;margin-left:auto;margin-right:auto;">
           Every project below is live in a production environment, used daily by real users.
           No demos. No prototypes. Real impact.
         </p>
-      </div>
+      </section>
 
-      <div class="projects-grid">
+      <!-- Cards are injected here by assets/js/modules/projects-renderer.js -->
+      <div class="projects-grid" id="projects-grid" aria-label="Project list"></div>
 
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#128101;</span></div>
-          <h3 class="project-title">Workforce Management Platform</h3>
-          <p class="project-description">7-module system covering rotation planning, attendance tracking with automated escalation alerts, skills matrix with decay logic, training management, and automated shift reports. Used daily by hundreds of plant floor workers.</p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span><span class="tech-tag">Node.js 20</span>
-            <span class="tech-tag">AWS Lambda</span><span class="tech-tag">DynamoDB</span>
-            <span class="tech-tag">API Gateway</span><span class="tech-tag">Cognito</span>
-            <span class="tech-tag">EventBridge</span><span class="tech-tag">S3 + CloudFront</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">75% planning time saved</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#128295;</span></div>
-          <h3 class="project-title">Workshop Job Card System</h3>
-          <p class="project-description">End-to-end digital job card management replacing paper-based workshop processes. Technicians create, track, and close job cards digitally with file uploads and automated alerts. Built with AWS SAM and a relational PostgreSQL database.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Node.js 20</span><span class="tech-tag">AWS Lambda</span>
-            <span class="tech-tag">PostgreSQL (RDS)</span><span class="tech-tag">API Gateway</span>
-            <span class="tech-tag">S3</span><span class="tech-tag">SNS</span><span class="tech-tag">AWS SAM</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Zero paper job cards</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#128200;</span></div>
-          <h3 class="project-title">Rework Tracking System</h3>
-          <p class="project-description">Integrated geofencing with a quality defect management system to automatically detect when vehicles enter rework bays, pull defects by VIN, filter by work area, and log session durations - eliminating all manual lookups.</p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span><span class="tech-tag">Geofencing API</span>
-            <span class="tech-tag">AWS Lambda</span><span class="tech-tag">DynamoDB</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">20% rework reduction</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#128202;</span></div>
-          <h3 class="project-title">Headcount Management Dashboard</h3>
-          <p class="project-description">Cloud-based headcount reporting pipeline for Resource &amp; Technology Steering. Automated monthly upload and processing - replacing manual Excel-based reporting. Serverless backend with HTTP API and CloudFront-delivered frontend.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Node.js</span><span class="tech-tag">AWS Lambda</span>
-            <span class="tech-tag">API Gateway</span><span class="tech-tag">S3 + CloudFront</span><span class="tech-tag">Cognito</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Manual reporting eliminated</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#9201;</span></div>
-          <h3 class="project-title">Production Takt Monitoring Dashboard</h3>
-          <p class="project-description">Real-time dashboard tracking production takt stability for plant line managers. Flags instability instantly, giving management live visibility into production rhythm adherence.</p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span><span class="tech-tag">S3 + CloudFront</span><span class="tech-tag">AWS Amplify</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live production monitoring</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#9989;</span></div>
-          <h3 class="project-title">Attendance Tracker</h3>
-          <p class="project-description">Lightweight browser-based attendance tool with real-time check-in/check-out and Excel export via SheetJS. Zero framework dependencies - intentionally lean for fast load times on shop floor devices with limited connectivity.</p>
-          <div class="project-tech">
-            <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span>
-            <span class="tech-tag">Vanilla JavaScript</span><span class="tech-tag">SheetJS</span>
-            <span class="tech-tag">S3 + CloudFront</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Zero-install, any device</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#129504;</span></div>
-          <h3 class="project-title">ML Rotation Suggestion Engine</h3>
-          <p class="project-description">Machine learning engine that suggests optimal worker rotations based on skill levels (with 6-week decay logic), ergonomic safety rules (max exposure days per station), and fairness scoring. Integrates with the workforce management platform.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Python</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">AWS Lambda</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.3);color:#a855f7;">In Development</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#128201;</span></div>
-          <h3 class="project-title">Power BI Dashboard Suite</h3>
-          <p class="project-description">4 production Power BI dashboards: headcount waterfall (month-on-month variance), line balancing (station loadings &amp; KPIs), defect tracking, and scrap cost analysis. Used daily by section managers and plant leadership.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">Excel</span><span class="tech-tag">ETL</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Used by leadership daily</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Live in Production</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header"><span class="project-icon">&#127942;</span></div>
-          <h3 class="project-title">AWS Serverless Data Pipeline</h3>
-          <p class="project-description">Built during an internal AWS Hackathon - certificate awarded. Full end-to-end serverless pipeline: S3 data landing &rarr; Lambda ETL &rarr; Glue schema discovery &rarr; Athena querying &rarr; QuickSight dashboards &rarr; Cognito auth &rarr; React embed.</p>
-          <div class="project-tech">
-            <span class="tech-tag">S3</span><span class="tech-tag">Lambda</span><span class="tech-tag">Glue</span>
-            <span class="tech-tag">Athena</span><span class="tech-tag">QuickSight</span>
-            <span class="tech-tag">Cognito</span><span class="tech-tag">React</span>
-          </div>
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">&#127942; Certificate Awarded</span>
-            <span class="tech-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">100% Serverless</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <div style="text-align:center;padding:3rem 1rem;border-top:1px solid var(--card-border);margin-top:3rem;">
+          <div style="text-align:center;padding:3rem 1rem;border-top:1px solid var(--card-border);margin-top:3rem;">
     <p style="color:var(--text-secondary);margin-bottom:1.5rem;font-size:1.05rem;">Want to know more about these systems?</p>
     <a href="assets/files/Lungani_Zungu_CV.pdf" class="btn" download="Lungani_Zungu_CV.pdf">&#11015; Download Full CV</a>
     <a href="contact.html" class="btn btn-secondary" style="margin-left:1rem;">Let's Talk &rarr;</a>
@@ -191,10 +64,12 @@
         <div class="social-links">
           <a href="mailto:lunganizungu2018@gmail.com" class="social-btn" title="Email">&#128231;</a>
           <a href="https://www.linkedin.com/in/lungani-zungu/" target="_blank" class="social-btn" title="LinkedIn">&#128188;</a>
+          <a href="https://github.com/2190lunga" target="_blank" class="social-btn" title="GitHub">&#128025;</a>
         </div>
       </div>
     </div>
   </footer>
-  <script src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
+
